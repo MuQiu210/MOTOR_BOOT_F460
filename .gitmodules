@@ -1,0 +1,4 @@
+[submodule "Components"]
+	path = Components
+	url = https://github.com/MuQiu210/MOTOR_COMP.git
+	branch = main

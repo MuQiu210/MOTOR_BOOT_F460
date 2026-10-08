@@ -1,0 +1,106 @@
+version: "4.1"
+name: MOTOR_BOOT_F460
+type: ARM
+deviceName: null
+packDir: null
+srcDirs:
+  - common
+  - driver_boot/src
+  - GCC
+  - User
+  - Hardware
+  - Components
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders: []
+dependenceList: []
+outDir: build
+miscInfo:
+  uid: c4b9ff937d871230985fd136765265f6
+targets:
+  F460:
+    cppPreprocessAttrs:
+      defineList:
+        - __MICROLIB
+        - HC32F460
+        - USE_DDL_DRIVER
+      incList:
+        - .
+        - Components/base
+        - Components/canopen
+        - Components/critical
+        - Components/damiao
+        - Components/dji
+        - Components/j1939
+        - Components/linker
+        - Components/md5
+        - Components/modbus
+        - Components/nvstore
+        - Components/ota
+        - Components/pack
+        - Components/ringbuffer
+        - Components/syscalls
+        - Components/task
+        - Core
+        - common
+        - driver/inc
+        - driver_boot/src
+        - GCC
+        - User
+        - Hardware
+      libList: []
+    excludeList: []
+    settings: {}
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M4
+        floatingPointHardware: single
+        options:
+          version: 5
+          afterBuildTasks: []
+          asm-compiler: {}
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            language-c: c11
+            language-cpp: c++11
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-size
+            warnings: all-warnings
+          global:
+            $float-abi-type: hard
+            arm-thumb-mode: thumb
+            not-use-syscalls: true
+            output-debug-info: enable
+            use-newlib-nano: true
+          linker:
+            $toolName: auto
+            LIB_FLAGS: -lm
+            output-format: elf
+            remove-unused-input-sections: true
+        scatterFilePath: GCC/hc32f460-loader.ld
+        storageLayout:
+          RAM: []
+          ROM: []
+        useCustomScatterFile: true
+    uploadConfigMap:
+      JLink:
+        baseAddr: ""
+        bin: ""
+        cpuInfo:
+          cpuName: HC32F460
+          vendor: HDSC
+        otherCmds: ""
+        proType: 1
+        speed: 50000
+      pyOCD:
+        baseAddr: "0x00000000"
+        bin: ""
+        config: .eide/debug.pyocd.yaml
+        otherCmds: ""
+        speed: 500k
+        targetName: hc32f460
+    uploader: JLink

@@ -1,0 +1,10 @@
+* text=auto
+
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+*.pack binary
+*.bin binary
+*.elf binary
+*.hex binary
+*.map binary
